@@ -6,11 +6,11 @@ execute:
   echo: true
 
 book:
-  title: "YOUR PROJECT TITLE"
+  title: "NYC Traffic Accident Density"
   author:
-    - AUTHOR1 (UNI1)
-    - AUTHOR2 (UNI2)
-  repo-url: https://github.com/YOUR_GITHUB_ACCOUNT/REPO_NAME
+    - Shurui Li (sl5432)
+    - Haonan Duan (hd2545)
+  repo-url: https://github.com/ArixLi/NYCTrafficAccident
   date: today
   page-footer:
     right: |
