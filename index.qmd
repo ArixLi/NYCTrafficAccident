@@ -1,1 +1,41 @@
 # Introduction
+
+In the bustling metropolis of New York City, the ebb and flow of its intricate transportation system are intrinsic to the city's heartbeat. However, this vitality comes at the cost of traffic accidents, which have become a critical concern for both city planners and residents alike. The purpose of this research is to delve into the density of traffic accidents across different boroughs in NYC and to analyze the key factors contributing to these incidents.
+
+## Rationale for Research:
+
+The decision to investigate traffic accident density in NYC stems from the significance of road safety in urban environments. As the city continually evolves and its population grows, understanding the patterns and causes of traffic accidents becomes paramount for ensuring the well-being of its residents and the efficiency of its transportation infrastructure. With over 8 million inhabitants navigating a complex web of roadways, sidewalks, and public transit, the need to comprehensively address road safety concerns is evident.
+
+Moreover, the societal and economic implications of traffic accidents cannot be overstated. The cost of medical care, property damage, and the impact on productivity due to road closures necessitate a thorough examination of the underlying causes. By identifying patterns and trends in accident data, we can develop targeted strategies to mitigate risks and enhance safety measures.
+
+
+## Main Interests:
+
+### Spatial Variation in Accident Density:
+
+- How does the density of traffic accidents vary across different boroughs of NYC?
+
+- Are there specific areas with consistently higher or lower accident rates?
+
+### Contributing Factors:
+
+- What are the primary contributing factors to traffic accidents in each borough?
+
+- Do factors such as weather conditions, road infrastructure, or population density play a significant role?
+
+### Temporal Trends:
+
+- Are there temporal patterns in accident occurrence, such as variations by time of day, day of the week, or season?
+- How have accident rates evolved over recent years?
+
+
+### Comparative Analysis of Boroughs:
+
+- Can we identify similarities or differences in the main causes of accidents between boroughs, such as the Bronx, Queens, Manhattan, Brooklyn, and Staten Island?
+
+- Are certain factors more prevalent in specific areas?
+
+
+This research aims to provide a comprehensive overview of the traffic accident landscape in NYC, shedding light on the spatial and temporal patterns, as well as the key factors contributing to these incidents. By addressing these questions, we aspire to contribute valuable insights that can inform evidence-based policy decisions and promote a safer and more efficient urban environment for all residents and visitors.
+
+
