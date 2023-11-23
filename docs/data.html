@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -172,17 +206,18 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="2.1" class="anchored" data-anchor-id="description"><span class="header-section-number">2.1</span> Description</h2>
 <p>The data consist of countrywide car accidents that covers 49 states of the USA. The accident data were collected from February 2016 to March 2023, using multiple APIs that provide streaming traffic incident (or event) data. These APIs broadcast traffic data captured by various entities, including the US and state departments of transportation, law enforcement agencies, traffic cameras, and traffic sensors within the road networks. The dataset currently contains approximately 7.7 million accident records.</p>
 <p>Sobhan Moosavi collected and updated this dataset (<a href="https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents">Fully Accessable Here</a>) with his collaborators almost every year (we use the latest one that is published at March 2023), according to the papers “A Countrywide Traffic Accident Dataset.” [<a href="https://arxiv.org/abs/1906.05409">Visit Paper</a>] and “Accident Risk Prediction based on Heterogeneous Sparse Data: New Dataset and Insights.” [<a href="https://arxiv.org/abs/1909.09638">Visit Paper</a>].</p>
-<p>For the purpose of our investigation, we exclusively utilize accident data specific to New York City, encompassing its five boroughs—Bronx, Queens, Manhattan, Brooklyn, and Staten Island. This dataset comprises a substantial 136,202 entries, each encompassing a comprehensive set of 47 variables. These variables encapsulate crucial information such as the temporal aspects, geographic coordinates, descriptive narratives, and other miscellaneous features characterizing each accident incident. The entirety of this extensive dataset is conveniently stored in a CSV file denoted as “NYC_Accidents_March23.csv.”</p>
+<p>For the purpose of our investigation, we exclusively utilize accident data specific to New York City, encompassing its boroughs—Bronx, Queens, New York, Richmond and Kings. This dataset comprises a substantial 117,817 entries, each encompassing a comprehensive set of 46 variables. These variables encapsulate crucial information such as the temporal aspects, geographic coordinates, descriptive narratives, and other miscellaneous features characterizing each accident incident. The entirety of this extensive dataset is conveniently stored in a CSV file denoted as “NY_Accidents_March23.csv.”</p>
 <p>The geographical details are meticulously encoded through longitude and latitude coordinates, providing a nuanced representation of the accident locations during distinct time frames. Complementary to this, the dataset encompasses computed distance metrics and timestamp information. Additionally, there exists a set of factor-like variables that categorically classify the common reasons for traffic accidents, offering a detailed contextualization of the incidents.</p>
 <p>Facilitating a seamless integration into our analysis pipeline, the dataset is thoughtfully organized by its authors. Our approach involves the straightforward download of this dataset, followed by its importation into the R environment using the “read.csv()” function. This meticulous organization ensures that we can efficiently access and analyze the wealth of information encapsulated within the dataset, contributing to a more comprehensive understanding of traffic accidents within the diverse landscape of New York City.</p>
 </section>
 <section id="research-plan" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="research-plan"><span class="header-section-number">2.2</span> Research plan</h2>
-<p>Traffic accidents are an ongoing concern in urban landscapes, and New York City is no exception. As we embark on this exploration, our dataset emerges as a crucial asset, offering a holistic perspective on traffic accidents in NYC. Comprising 136,202 entries with 47 variables, including temporal, spatial, and descriptive details, our dataset, stored in the “NYC_Accidents_March23.csv” file, presents an unparalleled opportunity to unravel the intricate dynamics of traffic accidents in the city.</p>
+<p>Traffic accidents are an ongoing concern in urban landscapes, and New York City is no exception. As we embark on this exploration, our dataset emerges as a crucial asset, offering a holistic perspective on traffic accidents in NYC. Comprising 117,817 entries with 46 variables, including temporal, spatial, and descriptive details, our dataset, stored in the “NYC_Accidents_March23.csv” file, presents an unparalleled opportunity to unravel the intricate dynamics of traffic accidents in the city.</p>
 <ul>
 <li>Spatial Variation in Accident Density:</li>
 </ul>
 <p>The dataset’s geospatial information, encoded as longitude and latitude coordinates, provides an avenue to scrutinize the spatial distribution of traffic accidents across NYC. By leveraging these coordinates, we can map and analyze the density of accidents in different neighborhoods and boroughs. This spatial lens allows us to identify hotspots, understand localized trends, and offer insights into the geographic disparities in accident occurrence.</p>
+<p>This the main goal for our project, we want to build</p>
 <ul>
 <li>Contributing Factors:</li>
 </ul>
@@ -194,11 +229,87 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>Comparative Analysis of Boroughs:</li>
 </ul>
-<p>A distinctive feature of our dataset is its detailed breakdown by boroughs—Bronx, Queens, Manhattan, Brooklyn, and Staten Island. This borough-level granularity facilitates a comparative analysis, allowing us to discern variations in accident density, contributing factors, and temporal trends between different areas of the city. Understanding these borough-specific nuances is crucial for tailoring interventions and policies to the unique characteristics of each borough.</p>
+<p>A distinctive feature of our dataset is its detailed breakdown by boroughs—Bronx, Queens, New York, Richmond and Kings. This borough-level granularity facilitates a comparative analysis, allowing us to discern variations in accident density, contributing factors, and temporal trends between different areas of the city. Understanding these borough-specific nuances is crucial for tailoring interventions and policies to the unique characteristics of each borough.</p>
 <p>Our dataset serves as a powerful instrument for unraveling the multifaceted dynamics of traffic accidents in NYC. Through spatial analyses, factor identification, temporal trend exploration, and borough-level comparisons, we aim to contribute meaningful insights that can inform evidence-based decision-making for enhancing road safety in the diverse and dynamic urban landscape of New York City.</p>
 </section>
 <section id="missing-value-analysis" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="missing-value-analysis"><span class="header-section-number">2.3</span> Missing value analysis</h2>
+<ul>
+<li>We will first analyze possible missing values in our dataset. For our main goal, Spatial Variation in Accident Density and Comparative Analysis of Boroughs, we need to check the portion of valid data in the whole set.</li>
+</ul>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">'../NY_Accidents_March23.csv'</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>position <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(County, Start_Lat, Start_Lng, End_Lat, End_Lng)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>mv_summary <span class="ot">&lt;-</span> position <span class="sc">%&gt;%</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(County) <span class="sc">%&gt;%</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">Start_Lat_missing =</span> <span class="fu">mean</span>(<span class="fu">is.na</span>(Start_Lat)),</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">Start_Lng_missing =</span> <span class="fu">mean</span>(<span class="fu">is.na</span>(Start_Lng)),</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">End_Lat_missing =</span> <span class="fu">mean</span>(<span class="fu">is.na</span>(End_Lat)),</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">End_Lng_missing =</span> <span class="fu">mean</span>(<span class="fu">is.na</span>(End_Lng))</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>mv_summary <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(mv_summary, <span class="at">cols =</span> <span class="sc">-</span>County, <span class="at">names_to =</span> <span class="st">"Indicator"</span>, <span class="at">values_to =</span> <span class="st">"Value"</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mv_summary, <span class="fu">aes</span>(<span class="at">x =</span> Indicator, <span class="at">y =</span> County, <span class="at">fill =</span> Value)) <span class="sc">+</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"lightblue"</span>, <span class="at">high =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Heatmap of Indicators by County"</span>, <span class="at">x =</span> <span class="st">"Indicator"</span>, <span class="at">y =</span> <span class="st">"County"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="data_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>In conclusion, our analysis of the dataset reveals notable variations in the prevalence of missing values across different geographic regions and specific columns. Particularly, the “End_Lat” and “End_Lng” columns exhibit a significant number of missing values. Richmond stands out with a considerably high missing value proportion, reaching 0.444. In contrast, Queens, New York, Kings, and Bronx show a more comparable range of 0.35-0.4 in terms of missing value proportions for these columns.</p>
+<p>It is noteworthy that there are no missing values in the “Start_Lat” and “Start_Lng” columns. Consequently, for our research purposes, relying on the start positions becomes imperative for drawing density patterns. The disparities in missing value proportions underscore the importance of considering regional variations when interpreting and utilizing the data. By focusing on the available information in the “Start_Lat” and “Start_Lng” columns, we can still glean valuable insights into the density patterns of the incidents under investigation.</p>
+<ul>
+<li>Second, for Contributing Factors, we would like to see if there is missing value for the reason of the accident. It may possible for an accident without a clear conclusion about its fault or it may not very common, which could leads a deeper research in the future.</li>
+</ul>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>reason <span class="ot">&lt;-</span> data[, <span class="fu">c</span>(<span class="dv">14</span>, <span class="dv">30</span><span class="sc">:</span><span class="dv">42</span>)]</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>reason[, <span class="sc">-</span><span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="fu">lapply</span>(reason[, <span class="sc">-</span><span class="dv">1</span>], as.logical)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>reason<span class="sc">$</span>TrueCount <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(reason[, <span class="sc">-</span><span class="dv">1</span>])</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>reason_stat <span class="ot">&lt;-</span> reason <span class="sc">%&gt;%</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(County) <span class="sc">%&gt;%</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">Non_Common =</span> <span class="fu">sum</span>(TrueCount <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">/</span> <span class="fu">n</span>(),</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">Single_Factor =</span> <span class="fu">sum</span>(TrueCount <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">/</span> <span class="fu">n</span>(),</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">Multiple_Factor =</span> <span class="fu">sum</span>(TrueCount <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="sc">/</span> <span class="fu">n</span>()</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>rs_long <span class="ot">&lt;-</span> <span class="fu">gather</span>(reason_stat, <span class="at">key =</span> <span class="st">"Factors"</span>, <span class="at">value =</span> <span class="st">"Fraction"</span>, <span class="sc">-</span>County)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>frac_order <span class="ot">&lt;-</span> <span class="fu">rev</span>(<span class="fu">names</span>(reason_stat)[<span class="dv">2</span><span class="sc">:</span><span class="fu">ncol</span>(reason_stat)])</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>rs_long<span class="sc">$</span>Factors <span class="ot">&lt;-</span> <span class="fu">factor</span>(rs_long<span class="sc">$</span>Factors, <span class="at">levels =</span> frac_order)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(rs_long, <span class="fu">aes</span>(<span class="at">x =</span> County, <span class="at">y =</span> Fraction, <span class="at">fill =</span> Factors)) <span class="sc">+</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"fill"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">title =</span> <span class="cn">NULL</span>)) <span class="sc">+</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Fraction of Accident Factors"</span>, <span class="at">x =</span> <span class="st">"County"</span>, <span class="at">y =</span> <span class="st">"Fraction"</span>) <span class="sc">+</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent_format</span>(<span class="at">scale =</span> <span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="data_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>In our dataset, we observe that approximately half of the recorded traffic accidents in New York City are distributed among the five counties, namely Bronx, Queens, New York, Richmond, and Kings. It is noteworthy, however, that the county of Kings stands out with the highest incidence of accidents attributed to multiple contributing factors. Despite this variation, the individual fractions of accidents within each area are relatively similar.</p>
+<p>This intriguing pattern prompts the possibility of conducting a more in-depth investigation into the underlying factors contributing to traffic accidents. By delving into the specific factors associated with accidents, we may uncover unique insights and patterns that could inform targeted interventions for improving road safety.</p>
+<p>For this future research endeavor, it is important to highlight that we retain more than half of the original dataset, providing a substantial foundation for analyzing the contributing factors in these traffic accidents. This ample dataset ensures that our analysis remains robust and comprehensive, offering a solid basis for understanding the nuances of traffic accidents across the diverse landscape of New York City.</p>
 
 
 </section>
