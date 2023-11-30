@@ -21,7 +21,7 @@ Traffic accidents are an ongoing concern in urban landscapes, and New York City 
 
 The dataset's geospatial information, encoded as longitude and latitude coordinates, provides an avenue to scrutinize the spatial distribution of traffic accidents across NYC. By leveraging these coordinates, we can map and analyze the density of accidents in different neighborhoods and boroughs. This spatial lens allows us to identify hotspots, understand localized trends, and offer insights into the geographic disparities in accident occurrence.
 
-This the main goal for our project, we want to build
+This the main goal for our project, we want to analyze the factors causing traffic accidents and visualizing the accident density geologically.
 
 
 - Contributing Factors:
