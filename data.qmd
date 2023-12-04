@@ -49,10 +49,13 @@ library(ggplot2)
 library(reshape2)
 library(dplyr)
 library(tidyr)
+library(redav)
 data <- read.csv('../NY_Accidents_March23.csv')
 
 position <- data %>%
   select(County, Start_Lat, Start_Lng, End_Lat, End_Lng)
+
+plot_missing(position)
 
 mv_summary <- position %>%
     group_by(County) %>%
