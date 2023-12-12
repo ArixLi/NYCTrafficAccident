@@ -165,8 +165,18 @@ ul.task-list li input[type="checkbox"] {
     font-family: sans-serif;
   }
 </style>
+
+<p>
+During the research, we found out that the number of traffic accidents varies from time to time. There are higher number of accidents during summer as we showed in the previous section. It is hard to observe the trend of number of accidents due to different reasons over time. Therefore, we decided to add an interactive d3 graph where the user can manually change the time to see the trend more clearly.
+</p>
+
 <div id="plot">
 
+</div>
+<div style="padding-left: 30px;">
+<p>
+</p>
+<p><button type="button" onclick="add()">Next Month</button> <button type="button" onclick="remove()">Previous Month</button></p>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 <script src="scripts/myscript.js"></script>

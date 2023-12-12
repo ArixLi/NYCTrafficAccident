@@ -114,5 +114,9 @@ In our dataset, we observe that approximately half of the recorded traffic accid
 
 This intriguing pattern prompts the possibility of conducting a more in-depth investigation into the underlying factors contributing to traffic accidents. By delving into the specific factors associated with accidents, we may uncover unique insights and patterns that could inform targeted interventions for improving road safety.
 
-For this future research endeavor, it is important to highlight that we retain more than half of the original dataset, providing a substantial foundation for analyzing the contributing factors in these traffic accidents. This ample dataset ensures that our analysis remains robust and comprehensive, offering a solid basis for understanding the nuances of traffic accidents across the diverse landscape of New York City. 
+For this future research endeavor, it is important to highlight that we retain more than half of the original dataset, providing a substantial foundation for analyzing the contributing factors in these traffic accidents. This ample dataset ensures that our analysis remains robust and comprehensive, offering a solid basis for understanding the nuances of traffic accidents across the diverse landscape of New York City.
+
+
+
+
 
