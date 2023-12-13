@@ -61,7 +61,7 @@ top_3_reason <- top_3_reason %>%
   filter(Value == TRUE) %>%
   select(County, Factors)
 
-top_3_reason_cur <- top_3_reason[1:1000,]
+top_3_reason_cur <- top_3_reason
 ggplot(top_3_reason_cur, aes(axis1 = County, axis2 = Factors)) +
   geom_alluvium(aes(fill = Factors)) +
   geom_stratum(aes(fill = County)) +
