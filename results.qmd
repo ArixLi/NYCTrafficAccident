@@ -6,29 +6,24 @@ The investigation focuses on discerning patterns in contributing factors influen
 
 - Factors  Association
 
-```{r}
-#import packages
-library(plotly)
-library(rjson)
-library(geojsonio)
-library(httr)
-library(jsonlite)
-library(corrplot)
-library(ggplot2)
-library(reshape2)
-library(dplyr)
-library(lubridate)
-library(redav)
-library(ggalluvial)
-library(ggridges)
-library(tidyr)
-library(forcats)
-library(tidytext)
-library(tidyverse)
-```
-
-
 ```{r  fig.height = 8, fig.width = 13, warning=FALSE, message=FALSE}
+library(plotly, quietly = TRUE)
+library(rjson, quietly = TRUE)
+library(geojsonio, quietly = TRUE)
+library(httr, quietly = TRUE)
+library(jsonlite, quietly = TRUE)
+library(corrplot, quietly = TRUE)
+library(ggplot2, quietly = TRUE)
+library(reshape2, quietly = TRUE)
+library(dplyr, quietly = TRUE)
+library(lubridate, quietly = TRUE)
+library(redav, quietly = TRUE)
+library(ggalluvial, quietly = TRUE)
+library(ggridges, quietly = TRUE)
+library(tidyr, quietly = TRUE)
+library(forcats, quietly = TRUE)
+library(tidytext, quietly = TRUE)
+library(tidyverse, quietly = TRUE)
 data <- read.csv('preprocess/NY_Accidents_March23.csv')
 reason <- data[, c(14, 30:42)]
 reason[, -1] <- lapply(reason[, -1], as.logical)
@@ -149,18 +144,18 @@ ggplot(temp_quant, aes(x = Month, y = Count, fill = factor(County))) +
 We find an interesting insight, that for most of area (or except Bronx), there is a count drop from Oct. to next year's April. Assume the data has no bias when collecting, we could know that the accidents mostly happen in summer. Since NYC is a modern city, we do not find a trend that the cold weather would affect the road situation, leading extra traffic accidents.
 
 ```{r}
-trend <- quant_data %>%
-  select(Month, names(column_sums))
-
-trend[, c(2:14)] <- trend[, c(2:14)] == 'True'
-trend <- trend %>%
-  group_by(Month) %>%
-  summarise(across(everything(), sum))
-
-top_11 <- names(sort(column_sums, decreasing = TRUE)[1:11])
-
-trend <- trend[c('Month',top_11)]
-write.csv(trend,file="/preprocess/d3_data.csv", row.names = FALSE)
+# trend <- quant_data %>%
+#   select(Month, names(column_sums))
+# 
+# trend[, c(2:14)] <- trend[, c(2:14)] == 'True'
+# trend <- trend %>%
+#   group_by(Month) %>%
+#   summarise(across(everything(), sum))
+# 
+# top_11 <- names(sort(column_sums, decreasing = TRUE)[1:11])
+# 
+# trend <- trend[c('Month',top_11)]
+# write.csv(trend,file="/preprocess/d3_data.csv", row.names = FALSE)
 ```
 
 We processed our data for further use in d3 graph. What we did was to visualize the trend of count for each reason over month. Thus, we are able to observe how specific reasons that cause traffic accidents change over time.
@@ -264,13 +259,13 @@ Next, we will examine spatial distribution in accident density across different 
 
 ```{r fig.height = 15, fig.width = 15, warning=FALSE, message=FALSE}
 # Data processing
-# # fetch GeoJson data
-# url <- "https://services5.arcgis.com/GfwWNkhOj9bNBqoJ/arcgis/rest/services/NYC_Census_Tracts_for_2020_US_Census/FeatureServer/0/query?where=1=1&outFields=*&outSR=4326&f=pgeojson"
-# geojson <- rjson::fromJSON(file=url)
-# loc <- c()
-# for (i in 1:2325){
-#   loc[i] = geojson$features[[i]]$properties$GEOID
-# }
+# fetch GeoJson data
+url <- "https://services5.arcgis.com/GfwWNkhOj9bNBqoJ/arcgis/rest/services/NYC_Census_Tracts_for_2020_US_Census/FeatureServer/0/query?where=1=1&outFields=*&outSR=4326&f=pgeojson"
+geojson <- rjson::fromJSON(file=url)
+loc <- c()
+for (i in 1:2325){
+  loc[i] = geojson$features[[i]]$properties$GEOID
+}
 # df <- data.frame(matrix(ncol = 3, nrow = 0))
 # colnames(df) <- c("GEOID", "count", "area")
 # for (i in 1:2325){
