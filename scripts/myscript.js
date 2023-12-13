@@ -24,7 +24,7 @@
     let max = 0;
 
 
-    d3.csv("d3_data.csv").then(function(data) {
+    d3.csv("https://raw.githubusercontent.com/ArixLi/NYCTrafficAccident/main/preprocess/d3_data.csv").then(function(data) {
 
       let newData = [];
       let name = [];
@@ -117,7 +117,7 @@ function update(counter) {
         .attr("height", h)
         .attr("fill", "lightblue");
 
-      d3.csv("d3_data.csv").then(function(data) {
+      d3.csv("https://raw.githubusercontent.com/ArixLi/NYCTrafficAccident/main/preprocess/d3_data.csv").then(function(data) {
           let newData = [];
           let name = [];
           for (let key in data[counter]){
